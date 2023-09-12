@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+.bannerContainer {
+  background-image: url(./assets/Images/Poster5.png);
+  @apply h-[90vh]  bg-cover
+}
+
+.l {
+  right: .6rem;
+  padding-top: .5rem;
+}
