@@ -1,5 +1,8 @@
+import { BsFillHeartFill } from "react-icons/bs"; 
 import { BiChevronRight } from "react-icons/bi"; 
 import { BsFillPlayCircleFill } from "react-icons/bs"; 
+import { Link } from 'react-router-dom';
+
 
 import icon1 from "../../assets/Images/imbd.png";
 import icon2 from "../../assets/Images/PngItem_1381056 1.png";
@@ -9,12 +12,16 @@ import icon2 from "../../assets/Images/PngItem_1381056 1.png";
 
 import React, { useEffect, useState } from 'react';
 import { getName } from 'country-list';
-const Hero = () => {
+import SearchMovie from "../SearchMovie";
+const Hero = ({ isSearching, searchedMovies }) => {
     const ApiKey = "ac6dc3eb216a103157a3af1e446ce52c";
-    const FeaturedMovies = "https://api.themoviedb.org/3/movie/top_rated";
-    // const FeaturedMovies = "https://api.themoviedb.org/3/trending/movie/week";
+    // const FeaturedMovies = "https://api.themoviedb.org/3/movie/top_rated";
+    const FeaturedMovies = "https://api.themoviedb.org/3/trending/movie/week";
   
-
+    const activeStyle = {
+        backgroundColor: 'blue',
+      };
+      
 
     const [Movies, Setmovies] = useState([]);
     const [Countries, SetCountries] = useState({});
@@ -25,9 +32,9 @@ const Hero = () => {
             try {
                 const response = await fetch(`${FeaturedMovies}?api_key=${ApiKey}`);
                 const data = await response.json();
-                Setmovies(data.results.slice(0, 12));
+                Setmovies(data.results.slice(0, 10));
 
-                for (let movie of data.results.slice(0, 12)) {
+                for (let movie of data.results.slice(0, 10)) {
                     const movieDetailResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${ApiKey}`);
                     const movieDetailData = await movieDetailResponse.json();
                     SetCountries(prevCountries => ({
@@ -48,7 +55,9 @@ const Hero = () => {
 
     return (
         <>
-            <main>
+            { isSearching ? 
+            (<SearchMovie searchedMovies={searchedMovies}/>) :
+                (<main>
                 <section className="banner">
                     <div className="bannerContainer">
                         <section className='pl-[8rem] pt-[10rem]'>
@@ -89,6 +98,7 @@ const Hero = () => {
 
                 <section className="cardDisplay">
                     <section className='px-[7.2rem] flex justify-between'>
+                     
                         <h2 className='text-[1.8rem] font-semibold my-[3rem]'>Featured movie</h2>
                         <div className="flex text-rose-600">
                         <h4 className="text-[15px] font-semibold my-[3rem] ">See More </h4>
@@ -97,8 +107,13 @@ const Hero = () => {
                     </section>
                     <figure className="cardContainer flex flex-wrap justify-center">
                         {Movies.map(movie => (
-                            <section key={movie.id} className='p-4 mx-[2rem] mb-[2rem]'>
+                            <section key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
+                                <Link to={`/movie/${movie.id}`}>
+                                     <span className="bg-red-500 ab w-[2rem] h-[2rem]
+                                     pl-[.5rem] pt-[.6rem]
+                                     rounded-full"><BsFillHeartFill className="text-slate-300" /></span>
                                 <div className=" h-[500px] relative w-[250px]">
+                                    
                                     <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                                         alt={movie.title}
                                         className='w-full'
@@ -127,19 +142,21 @@ const Hero = () => {
                             </div>
                                         {/* <h3 className="text-sm font-medium mt-1">{movie.vote_average}</h3> */}
                                         <div className="mt-2 flex flex-wrap space-x-1">
-                                            {Genres[movie.id]?.map(genre => (
-                                                <span key={genre} className=" text-slate-400  ">
-                                                    {genre},
+                                            {Genres[movie.id] &&(
+                                                <span className=" text-slate-400  ">
+                                                    {Genres[movie.id].join(', ')}
                                                 </span>
-                                            ))}
+                                            )}
                                         </div>
                                     </figcaption>
                                 </div>
+                                </Link>
                             </section>
                         ))}
                     </figure>
                 </section>
-            </main>
+            </main>)
+            }
         </>
     )
 }
