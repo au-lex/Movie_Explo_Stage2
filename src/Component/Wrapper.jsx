@@ -1,11 +1,38 @@
+import React, { useEffect, useState } from 'react'
+import Hero from './HeroContainer/Hero'
 import { HiOutlineMenuAlt4 } from "react-icons/hi"; 
 import { BiSearch } from "react-icons/bi"; 
-import React from 'react'
-import logo from "../../assets/Images/tv.png"
-const Header = () => {
+import logo from "../assets/Images/tv.png"
+
+const Home = () => {
+  const [isSearching, setIsSearching] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
+  const ApiKey = "ac6dc3eb216a103157a3af1e446ce52c";
+  const url = "https://api.themoviedb.org/3/search/movie";
+
+  function handleChange(e) {
+    setSearchTerm(e.target.value)
+  }
+
+  useEffect( () => {
+    if(searchTerm) {
+        setIsSearching(true);
+    } else {
+        setIsSearching(false)
+    }
+    const getmoviesBytitle = async () =>{
+        const response = await fetch(`${url}?api_key=${ApiKey}&query=${searchTerm}`);
+        const movies = await response.json();
+        setMovies(movies.results);
+    }
+
+    getmoviesBytitle()
+  },[searchTerm])
+
     return (
         <>
-            <main className="absolute w-full">
+            <main className="absolute w-full ">
                 <section className=' flex justify-around h-[6rem] pt-[1rem]' >
                    
                    <section className="flex space-x-6">
@@ -19,7 +46,7 @@ const Header = () => {
                  <section className="inputContainer relative">
                     
                 
-                    <input type="search" name="" id=""  
+                    <input   onChange={handleChange} type="search" name="" id=""  value={searchTerm}
                      className="  block  w-full    bg-transparent  border-slate-300 border-[2.3px]
                      rounded-md py-2 pl-2 pr-3   focus:outline-none focus:border-sky-500
                      focus:ring-sky-500 focus:ring-1 sm:text-sm lg:w-[30rem] placeholder:text-slate-300"  
@@ -39,8 +66,14 @@ const Header = () => {
                  </section>
                 </section>
             </main>
+
+            <Hero 
+            isSearching={isSearching}
+            searchedMovies={movies}
+            />
         </>
+
     )
 }
 
-export default Header
+export default Home
