@@ -118,41 +118,42 @@ const Hero = ({ isSearching, searchedMovies }) => {
 
    <section className="bannerContainer2 lg:hidden md:hidden xl:hidden  ">
                     <div className="banner2">
+                        <div className='b'></div>
                         <section className='pl-[1.3rem] pt-[2rem]'>
                         <section className="herotitle w-[100%] ">
                             <section className="flex justify-between">
 
                             <h1 className='font-sans text-slate-300 font-bold
                             mt-[6rem] text-[1rem]
-                             capitalize'>john wick 3: <br /> parabellum</h1>
+                             capitalize z-50'>john wick 3: <br /> parabellum</h1>
                                <div className="icons flex my-[.6rem] space-x-12 ">
                               <div className="icon1 flex space-x-3 mt-[6rem]">
                                 <div>
                                 <img src={icon1} alt="" />
                                 </div>
-                                <span className="text-slate-300 block">86.0/100</span>
+                                <span className="text-slate-300 block z-50">86.0/100</span>
                               </div>
                               <div className="icon2 flex space-x-3">
                               <div>
-                                <img src={icon2} alt="" />
+                                {/* <img src={icon2} alt="" /> */}
                                 </div>
-                                <span className="text-slate-300 block">97%</span>
+                                {/* <span className="text-slate-300 block">97%</span> */}
                               </div>
                            
                             </div>
                             </section>
 
                           
-                            <p className='text-slate-300 text-[10px]'> john wick is on the run after killing a memeber<br /> 
+                            <p className='text-slate-300 text-[12px] z-50'> john wick is on the run after killing a memeber<br /> 
                             of the international
                                 assassin's guild, and with <br />
                                  $14 million price tag on his head, he is the <br />
                                  target
                                 of hit men and women everywhere
                             </p>
-                            <div className="bg-rose-700  capitalize font-bold py-2  w-[50%] flex rounded-[8px] my-4">
-                            <span className="text-slate-200 block px-3 pt-1"><BsFillPlayCircleFill /></span>
-                              <a href="#"  className="text-slate-300">Watch trailer</a>
+                            <div className="bg-rose-700 z-50  capitalize font-bold py-2  w-[50%] flex rounded-[8px] my-4">
+                            <span className="text-slate-200 block px-3 pt-1 z-50 "><BsFillPlayCircleFill /></span>
+                              <a href="#"  className="text-slate-300 z-50'">Watch trailer</a>
                             </div>
                         </section>
                         </section>
@@ -160,7 +161,7 @@ const Hero = ({ isSearching, searchedMovies }) => {
                 </section>
 
                 <section className="cardDisplay lg:hidden md:hidden xl:hidden ">
-                    <section className='px-[1.2rem] flex justify-between'>
+                    <section   className='px-[1.2rem] flex justify-between'>
                      
                         <h2 className='text-[1.8rem] font-semibold my-[3rem]'>Featured movie</h2>
                         <div className="flex text-rose-600">
@@ -170,7 +171,7 @@ const Hero = ({ isSearching, searchedMovies }) => {
                     </section>
                     <figure className="cardContainer flex flex-wrap justify-center">
                         {Movies.map(movie => (
-                            <section key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
+                            <section   data-testid: movie-card  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
 
 <span  
     className="bg-red-500 ab w-[2rem] h-[2rem] z-50 pl-[.5rem] pt-[.6rem] rounded-full" 
@@ -186,7 +187,7 @@ const Hero = ({ isSearching, searchedMovies }) => {
     
                                 <div className=" h-[500px] relative w-[250px]">
                                     
-                                    <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                    <img data-testid: movie-poster src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                                         alt={movie.title}
                                         className='w-full'
                                     />
@@ -194,9 +195,9 @@ const Hero = ({ isSearching, searchedMovies }) => {
                                         <div className="flex space-x-1">
 
                                         <h3 className="text-sm mt-1 text-slate-400 ">{Countries[movie.id]},</h3>
-                                        <h3 className="text-sm mt-1 text-slate-400 ">{new Date(movie.release_date).getFullYear()}</h3>
+                                        <h3 data-testid: movie-release-date className="text-sm mt-1 text-slate-400 ">{new Date(movie.release_date).getFullYear()}</h3>
                                         </div>
-                                        <h1 className="text-lg font-bold">{movie.title}</h1>
+                                        <h1 data-testid: movie-title className="text-lg font-bold">{movie.title}</h1>
                                         <div className="icons flex my-[.6rem]  justify-between ">
                               <div className="icon1 flex space-x-3">
                                 <div>
@@ -230,6 +231,9 @@ const Hero = ({ isSearching, searchedMovies }) => {
 
 
    {/* mobil_responsive */}
+
+
+
                 <section className="cardDisplay hidden lg:block md:block xl:block">
                     <section className='px-[7.2rem] flex justify-between'>
                      
