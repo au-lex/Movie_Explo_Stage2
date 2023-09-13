@@ -1,8 +1,16 @@
-# React + Vite
+# MovieBox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Getting Started
+Clone the repository:
+git clone https://github.com/au-lex/Movie_Explo_Stage2.git
+cd Movie_Explore
+install dependencies:
+npm install
+Run the application:
+npm run dev
+# Usage
+Homepage: Navigate to the main URL to see the top 10 movies.
+Search: Use the search bar on the homepage to look for specific movies by title.
+Movie Details: Click on any movie poster or title to view its detailed information.
+Error Handling
+In case of any issues or errors during the API calls, meaningful error messages are displayed to inform the user of what went wrong.

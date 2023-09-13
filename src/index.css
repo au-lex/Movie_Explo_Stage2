@@ -10,6 +10,14 @@
   @apply h-[90vh]  bg-cover
 }
 
+.banner2 {
+  background-image: url(./assets/Images/Poster5.png);
+  background-repeat: no-repeat;
+ background-size: cover;
+ height: 20rem;
+ width: 100%;
+}
+
 .l {
   right: .6rem;
   padding-top: .5rem;
@@ -24,9 +32,19 @@
 }
 
 
+.ab:hover {
+  background-color: rgb(92, 4, 4);
+  transition: .4s  ease-in-out;
+}
+
 .movieDetailContainer {
   position: relative;
   padding: 2rem 2rem;
+  
+}
+.movieDetailContainer2{
+  position: relative;
+  padding: 2rem 0rem;
   
 }
 
@@ -34,8 +52,15 @@
   width: 100%; 
   max-height: 400px; 
   object-fit: cover; 
-  filter: brightness(60%); 
   border-radius: 30px;
+
+}
+.movieBackdrop2 {
+  width: 100%; 
+  max-height: 250px; 
+  object-fit: cover; 
+ 
+  border-radius: 10px;
 
 }
 .movieTextOverlay {
@@ -59,3 +84,33 @@ aside {
   padding-left: 1.6rem;
   border-right: 7px solid rgb(133, 17, 48);
  }
+
+
+ .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ }
+
+
+ .side {
+  
+  left: -40rem;
+  transition: .4s ease;
+}
+
+.side.active {
+  /* This shows the sidebar when the 'active' class is added */
+  left: 0rem;
+}
+
+
+.play {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0 , 0, 0, 0.6);
+}
+
+ 
