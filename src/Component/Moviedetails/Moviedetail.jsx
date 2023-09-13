@@ -51,13 +51,13 @@ const MovieDetail = () => {
     );
 
   return (
-    <div className="bg-slate-100  absolute bottom-0 top-0 h-[150vh]">
+    <div className="bg-slate-100  absolute bottom-0 top-0 h-[150vh] overflow-x-hidden">
       <section className="flex">
         {/* mobile_responsive */}
 
         <figure className=" px-[1rem] lg:hidden md:hidden xl:hidden pt-[2rem]">
             
-          <section className="flex justify-between">
+          <section className="flex justify-between px-4">
             <section className="flex space-x-4">
               <div className="logo  w-[50px]">
                 <img src={logo} alt="" />
@@ -69,7 +69,7 @@ const MovieDetail = () => {
 
             <div className=" text-slate-600    " >
               <span onClick={toggleMenu}
-                className="block text-[18px] 
+                className="block text-[16px] 
                      font-semibold my-[1rem]"
               >
                 Menu
@@ -85,7 +85,7 @@ const MovieDetail = () => {
               Back{" "}
             </Link>
           </div>
-          <div className="movieDetailContainer2">
+          <div className="movieDetailContainer2 ">
           <span className="absolute play z-50  pl-[1rem] w-[8rem] h-[8rem] rounded-full">
                  <span className="text-white text-[6rem]">
             <i class="ri-play-fill"></i>
@@ -262,14 +262,7 @@ const MovieDetail = () => {
         </aside>
 
         <aside className="bg-slate-100 w-[15%] h-[100vh] hidden lg:block md:block xl:block pt-6 px-8 z-50  fixed shadow-md border-slate-400 border-2">
-          {/* <section className="flex space-x-4">
-                    <div className="logo  w-[50px]">
-                        <img src={logo} alt="" />
-                    </div>
-                <div className='logoTest pt-1 font-semibold text-slate-900'>
-                    <h1 className="text-[1.4rem]">MovieBox</h1>
-                </div>
-                </section> */}
+         
 
           <nav className="mt-[3rem]">
             <div className="flex text-slate-600  space-x-2 ">
