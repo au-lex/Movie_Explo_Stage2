@@ -1,43 +1,14 @@
-<!-- You should list the top 10 movies on the homepage.
-They should be displayed in a grid layout with their movie posters.
-The Card component should display the movie title and release date.
-card - [data-testid: movie-card]
-movie poster - [data-testid: movie-poster]
-movie title - [data-testid: movie-title]
-movie release date - [data-testid: movie-release-date]
-2. Movie Search:
-Implement a search feature that allows users to search for movies by title.
-Display search results, including movie posters, titles, and release dates.
-Show a loading indicator while fetching search results.
-3. Movie Details:
-When i go to to /movies/:id route (where :id is the imdb_id), I should see the movie details page.
-I should see
-title - [data-testid: movie-title]
-release date (in UTC) - [data-testid: movie-release-date]
-runtime (in minutes) - [data-testid: movie-runtime]
-overview - [data-testid: movie-overview]
-API Integration:
-Consume the TMDB API to fetch movie data.
-Use the following API endpoints:
-Fetch movie details by ID: https://api.themoviedb.org/3/movie/{movie_id}
-Error Handling:
-Implement error handling to display meaningful error messages to users in case of API failures or other issues.
-Submission:
-Host your frontend application on a platform of your choice (e.g., GitHub Pages, Netlify).
-Provide clear instructions on how to run your project locally in your README.md file.
-Ensure that the code is well-documented and organized.
-This frontend challenge requires you to build a dynamic movie discovery app that interacts with a real API to fetch and display movie data.
-PS: You MUST use react or  Next js
-Submit your task through the designated submission form.
-Submission Deadline:
-The deadline for submissions is 14th September 2023, 11:59 PM GMT. Late submissions will not be entertained.
-Link to submission form again: https://docs.google.com/forms/d/e/1FAIpQLSf-oxF8XvHCuCiBg3ktBxuNxk2tPk2SQq_-02sx7TBQlBd7Xg/viewform
-PPS: THE API MIGHT NOT RETURN ALL THE INFO ON THE SECOND PAGE OF THE DESIGN, ADD THE ESSENTIAL ONES THAT ARE LISTEN ABOVE. THE SIDEBAR DOESN'T NEED TO BE FUNCTIONAL.
-YOU MAY USE ANY CSS FRAMEWORK/LIBRARY OF YOUR CHOICE (edited) 
-The Movie Database (TMDB)The Movie Database (TMDB)
 Getting Started
-Welcome to version 3 of The Movie Database (TMDB) API. This is where you will find the definitive list of currently available methods for our movie, tv, actor and image API. -->
-
-
-
-<!-- ac6dc3eb216a103157a3af1e446ce52c -->
+Clone the repository:
+git clone https://github.com/your_username/movie-discovery-app.git
+cd movie-discovery-app
+install dependencies:
+npm install
+Run the application:
+npm run dev
+Usage
+Homepage: Navigate to the main URL to see the top 10 movies.
+Search: Use the search bar on the homepage to look for specific movies by title.
+Movie Details: Click on any movie poster or title to view its detailed information.
+Error Handling
+In case of any issues or errors during the API calls, meaningful error messages are displayed to inform the user of what went wrong.
