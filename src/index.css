@@ -4,6 +4,10 @@
 
 
 
+body {
+  overflow-x: hidden;
+}
+
 
 .bannerContainer {
   background-image: url(./assets/Images/Poster5.png);
@@ -11,12 +15,25 @@
 }
 
 .banner2 {
-  background-image: url(./assets/Images/Poster5.png);
+  background-image: url(./assets/Images/bg3.jpeg);
   background-repeat: no-repeat;
  background-size: cover;
  height: 20rem;
  width: 100%;
+ 
 }
+
+
+.banner3{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
 
 .l {
   right: .6rem;
