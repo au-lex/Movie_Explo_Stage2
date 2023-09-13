@@ -17,8 +17,8 @@ import SearchMovie from "../SearchMovie";
 
 const Hero = ({ isSearching, searchedMovies }) => {
     const ApiKey = "ac6dc3eb216a103157a3af1e446ce52c";
-    // const FeaturedMovies = "https://api.themoviedb.org/3/movie/top_rated";
-    const FeaturedMovies = "https://api.themoviedb.org/3/trending/movie/week";
+    const FeaturedMovies = "https://api.themoviedb.org/3/movie/top_rated";
+    // const FeaturedMovies = "https://api.themoviedb.org/3/trending/movie/week";
   
 
     const [likedMovies, setLikedMovies] = useState(new Set())
@@ -173,15 +173,20 @@ const Hero = ({ isSearching, searchedMovies }) => {
                         {Movies.map(movie => (
                             <section   data-testid: movie-card  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
 
+                            <div className='likedContainer  absolute h-[50px]  w-[200px] z-50'>
+
+
 <span  
-    className="bg-red-500 ab w-[2rem] h-[2rem] z-50 pl-[.5rem] pt-[.6rem] rounded-full" 
-    onClick={() => toggleLike(movie.id)}
+className="bg-red-500 ab w-[2.5rem] h-[2.5rem] z-50 pl-[.7rem] pt-[.8rem] rounded-full liked" 
+onClick={() => toggleLike(movie.id)}
 >
-    {likedMovies.has(movie.id) ? 
-        <BsHeart className="text-slate-300" /> : 
-        <BsFillHeartFill className="text-slate-300" />
-    }
+{likedMovies.has(movie.id) ? 
+<BsFillHeartFill className="text-slate-300 cursor-pointer" /> : 
+<BsHeart className="text-slate-300 cursor-pointer" />
+}
 </span>
+
+</div>
                                 <Link to={`/movie/${movie.id}`}>
                                     
     
@@ -243,13 +248,28 @@ const Hero = ({ isSearching, searchedMovies }) => {
                         <span className="block text-[25px] font-semibold my-[3rem]"><BiChevronRight /></span>
                         </div>
                     </section>
+                    
                     <figure className="cardContainer flex flex-wrap justify-center">
                         {Movies.map(movie => (
                             <section data-testid: movie-card  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
+                                <div className='likedContainer  absolute h-[50px]  w-[200px] z-50'>
+
+
+                                <span  
+    className="bg-red-500 ab w-[2rem] h-[2rem] z-50 pl-[.5rem] pt-[.6rem] rounded-full liked" 
+    onClick={() => toggleLike(movie.id)}
+>
+    {likedMovies.has(movie.id) ? 
+        <BsFillHeartFill className="text-slate-300 cursor-pointer" /> : 
+        <BsHeart className="text-slate-300 cursor-pointer" />
+    }
+</span>
+
+                                </div>
                                 <Link to={`/movie/${movie.id}`}>
-                                     <span className="bg-red-500 ab w-[2rem] h-[2rem]
-                                     pl-[.5rem] pt-[.6rem]
-                                     rounded-full"><BsFillHeartFill className="text-slate-300" /></span>
+
+
+  
                                 <div className=" h-[500px] relative w-[200px]">
                                     
                                     <img data-testid: movie-poster src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}

@@ -130,4 +130,12 @@ aside {
   background-color: rgba(0 , 0, 0, 0.6);
 }
 
+
+.likedContainer {
+  background-color: rgba(0 , 0, 0, 0);
+}
+
+.liked {
+ margin-top: -1rem;
+}
  
