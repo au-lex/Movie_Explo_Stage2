@@ -200,7 +200,8 @@ onClick={() => toggleLike(movie.id)}
                                         <div className="flex space-x-1">
 
                                         <h3 className="text-sm mt-1 text-slate-400 ">{Countries[movie.id]},</h3>
-                                        <h3 data-testid: movie-release-date className="text-sm mt-1 text-slate-400 ">{new Date(movie.release_date).getFullYear()}</h3>
+                                        <h3 data-testid: movie-release-date className="text-sm mt-1 text-slate-400 ">
+                                        {new Date(movie.release_date).toLocaleDateString()}</h3>
                                         </div>
                                         <h1 data-testid: movie-title className="text-lg font-bold">{movie.title}</h1>
                                         <div className="icons flex my-[.6rem]  justify-between ">
