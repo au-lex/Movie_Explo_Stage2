@@ -83,7 +83,7 @@ const MovieDetail = () => {
               Back{" "}
             </Link>
           </div>
-          <div className="movieDetailContainer2 ">
+          <div   data-testid="movie-card" className="movieDetailContainer2 ">
             <span className="absolute play z-50  pl-[1rem] w-[8rem] h-[8rem] rounded-full">
               <span className="text-white text-[6rem]">
                 <i class="ri-play-fill"></i>
@@ -339,7 +339,7 @@ const MovieDetail = () => {
         </aside>
 
         <figure className="ml-[15rem] hidden lg:block md:block xl:block">
-          <div className="movieDetailContainer">
+          <div   data-testid="movie-card" className="movieDetailContainer">
             <span className="absolute play z-50  pl-[1rem] w-[8rem] h-[8rem] rounded-full">
               <span className="text-white text-[6rem]">
                 <i class="ri-play-fill"></i>
