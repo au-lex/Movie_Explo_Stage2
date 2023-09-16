@@ -16,6 +16,10 @@ const MovieDetail = () => {
   const { id } = useParams();
   const ApiKey = "ac6dc3eb216a103157a3af1e446ce52c";
   const [movieDetails, setMovieDetails] = useState(null);
+  const convertToUTCDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
 
   const [isSidebarActive, setIsSidebarActive] = useState(false);
 
@@ -102,7 +106,7 @@ const MovieDetail = () => {
               {movieDetails.title},....
             </h2>
             <p data-testid="movie-release-date">
-              {new Date(movieDetails.release_date).toLocaleDateString()}
+            {convertToUTCDate(movieDetails.release_date)}
             </p>
             <p data-testid="movie-runtime">{movieDetails.runtime} minutes</p>
           </div>
@@ -357,7 +361,12 @@ const MovieDetail = () => {
               {movieDetails.title},
             </h2>
             <p data-testid="movie-release-date" className="px-[2rem] font-bold">
-              {new Date(movieDetails.release_date).toLocaleDateString()}
+            <h3 
+    data-testid="movie-release-date" 
+    className="text-sm mt-1 text-slate-400 "
+>
+    {convertToUTCDate(movieDetails.release_date)}
+</h3>
             </p>
             <p data-testid="movie-runtime" className="px-[2rem] font-bold">
               {movieDetails.runtime} minutes
