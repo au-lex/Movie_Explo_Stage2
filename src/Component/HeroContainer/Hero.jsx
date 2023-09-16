@@ -1,39 +1,38 @@
-import { BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { BsFillHeartFill, BsHeart, BsFillPlayCircleFill } from "react-icons/bs";
 import { BiChevronRight } from "react-icons/bi";
-import { BsFillPlayCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
 import icon1 from "../../assets/Images/imbd.png";
 import icon2 from "../../assets/Images/PngItem_1381056 1.png";
-
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import React, { useEffect, useState } from "react";
 import { getName } from "country-list";
 import SearchMovie from "../SearchMovie";
+
 const Hero = ({ isSearching, searchedMovies }) => {
   const ApiKey = "ac6dc3eb216a103157a3af1e446ce52c";
   const FeaturedMovies = "https://api.themoviedb.org/3/movie/top_rated";
-  // const FeaturedMovies = "https://api.themoviedb.org/3/trending/movie/week";
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [likedMovies, setLikedMovies] = useState(new Set());
+  const [Movies, Setmovies] = useState([]);
+  const [Countries, SetCountries] = useState({});
+  const [Genres, SetGenres] = useState({});
+
   const toggleLike = (movieId) => {
     const updatedLikes = new Set(likedMovies);
-
     if (likedMovies.has(movieId)) {
       updatedLikes.delete(movieId);
     } else {
       updatedLikes.add(movieId);
     }
-
     setLikedMovies(updatedLikes);
   };
 
-  const [Movies, Setmovies] = useState([]);
-  const [Countries, SetCountries] = useState({});
-  const [Genres, SetGenres] = useState({});
-
   useEffect(() => {
     const getMovies = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch(`${FeaturedMovies}?api_key=${ApiKey}`);
         const data = await response.json();
@@ -55,16 +54,28 @@ const Hero = ({ isSearching, searchedMovies }) => {
         }
       } catch (error) {
         console.log("Error Fetching Movies:", error);
+        setError('Failed to fetch movies. Please check your internet connection and try again.');
       }
+      setLoading(false);
     };
     getMovies();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
       {isSearching ? (
         <SearchMovie searchedMovies={searchedMovies} />
       ) : (
+   
+
         <main>
           <section className="banner hidden lg:block md:block xl:block">
             <div className="bannerContainer">
@@ -273,10 +284,10 @@ const Hero = ({ isSearching, searchedMovies }) => {
               </div>
             </section>
 
-            <figure className="cardContainer flex flex-wrap justify-center">
+            <figure   data-testid="movie-card" className="cardContainer flex flex-wrap justify-center">
               {Movies.map((movie) => (
                 <section
-                  data-testid="movie-card"
+                
                   key={movie.id}
                   className="p-4 mx-[2rem] mb-[2rem] relative"
                 >

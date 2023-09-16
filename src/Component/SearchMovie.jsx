@@ -8,10 +8,10 @@ import icon2 from "../assets/Images/PngItem_1381056 1.png";
 const SearchMovie = ({ searchedMovies }) => {
     return (
         <div style={{ minHeight: "100vh"} }  className="bg-blue-600 z-50 pt-[10rem]">
-  <figure className="cardContainer flex flex-wrap justify-center">
+  <figure   data-testid="movie-card" className="cardContainer flex flex-wrap justify-center">
               {Movies.map((movie) => (
                 <section
-                  data-testid="movie-card"
+                 
                   key={movie.id}
                   className="p-4 mx-[2rem] mb-[2rem] relative"
                 >
