@@ -187,7 +187,7 @@ onClick={() => toggleLike(movie.id)}
 </span>
 
 </div>
-                                <Link to={`/movie/${movie.id}`}>
+                                <Link to={`/movies/${movie.id}`}>
                                     
     
                                 <div className=" h-[500px] relative w-[250px]">
@@ -267,7 +267,7 @@ onClick={() => toggleLike(movie.id)}
 </span>
 
                                 </div>
-                                <Link to={`/movie/${movie.id}`}>
+                                <Link to={`/movies/${movie.id}`}>
 
 
   
