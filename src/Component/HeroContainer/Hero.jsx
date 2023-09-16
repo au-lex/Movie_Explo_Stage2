@@ -171,7 +171,7 @@ const Hero = ({ isSearching, searchedMovies }) => {
                     </section>
                     <figure className="cardContainer flex flex-wrap justify-center">
                         {Movies.map(movie => (
-                            <section   data-testid: movie-card  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
+                            <section   data-testid= "movie-card"  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
 
                             <div className='likedContainer  absolute h-[50px]  w-[200px] z-50'>
 
@@ -192,7 +192,7 @@ onClick={() => toggleLike(movie.id)}
     
                                 <div className=" h-[500px] relative w-[250px]">
                                     
-                                    <img data-testid: movie-poster src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                    <img data-testid="movie-poster" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                                         alt={movie.title}
                                         className='w-full'
                                     />
@@ -200,10 +200,10 @@ onClick={() => toggleLike(movie.id)}
                                         <div className="flex space-x-1">
 
                                         <h3 className="text-sm mt-1 text-slate-400 ">{Countries[movie.id]},</h3>
-                                        <h3 data-testid: movie-release-date className="text-sm mt-1 text-slate-400 ">
+                                        <h3 data-testid ="movie-release-date" className="text-sm mt-1 text-slate-400 ">
                                         {new Date(movie.release_date).toLocaleDateString()}</h3>
                                         </div>
-                                        <h1 data-testid: movie-title className="text-lg font-bold">{movie.title}</h1>
+                                        <h1 data-testid ="movie-title" className="text-lg font-bold">{movie.title}</h1>
                                         <div className="icons flex my-[.6rem]  justify-between ">
                               <div className="icon1 flex space-x-3">
                                 <div>
@@ -252,7 +252,7 @@ onClick={() => toggleLike(movie.id)}
                     
                     <figure className="cardContainer flex flex-wrap justify-center">
                         {Movies.map(movie => (
-                            <section data-testid: movie-card  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
+                            <section data-testid="movie-card"  key={movie.id} className='p-4 mx-[2rem] mb-[2rem] relative'>
                                 <div className='likedContainer  absolute h-[50px]  w-[200px] z-50'>
 
 
@@ -273,7 +273,7 @@ onClick={() => toggleLike(movie.id)}
   
                                 <div className=" h-[500px] relative w-[200px]">
                                     
-                                    <img data-testid: movie-poster src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                    <img data-testid= "movie-poster" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                                         alt={movie.title}
                                         className='w-full'
                                     />
@@ -281,10 +281,10 @@ onClick={() => toggleLike(movie.id)}
                                         <div className="flex space-x-1">
 
                                         <h3 className="text-sm mt-1 text-slate-400 ">{Countries[movie.id]},</h3>
-                                        <h3 data-testid: movie-release-date className="text-sm mt-1 text-slate-400 ">
+                                        <h3 data-testid ="movie-release-date" className="text-sm mt-1 text-slate-400 ">
                                         {new Date(movie.release_date).toLocaleDateString()}</h3>
                                         </div>
-                                        <h1 data-testid: movie-title className="text-lg font-bold">{movie.title}</h1>
+                                        <h1 data-testid = "movie-title" className="text-lg font-bold">{movie.title}</h1>
                                         <div className="icons flex my-[.6rem]  justify-between ">
                               <div className="icon1 flex space-x-3">
                                 <div>
